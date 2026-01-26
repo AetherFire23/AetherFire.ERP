@@ -7,4 +7,9 @@
         <RootNamespace>AetherFire23.ERP.Domain</RootNamespace>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\commons\AetherFire23.Commons.Composition\AetherFire23.Commons.Composition.csproj" />
+      <ProjectReference Include="..\commons\AetherFire23.Commons.Domain\AetherFire23.Commons.Domain.csproj" />
+    </ItemGroup>
+
 </Project>

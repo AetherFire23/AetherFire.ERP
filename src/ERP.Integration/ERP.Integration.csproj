@@ -18,4 +18,11 @@
         <Using Include="Xunit"/>
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\commons\AetherFire23.Commons.Testing\AetherFire23.Commons.Testing.csproj" />
+      <ProjectReference Include="..\ERP.Application\ERP.Application.csproj" />
+      <ProjectReference Include="..\ERP.Domain\ERP.Domain.csproj" />
+      <ProjectReference Include="..\ERP.Infrastructure\ERP.Infrastructure.csproj" />
+    </ItemGroup>
+
 </Project>
