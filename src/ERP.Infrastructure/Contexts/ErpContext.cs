@@ -7,7 +7,7 @@ public class ErpContext : DbContext
 {
     public DbSet<User> Users { get; set; }
 
-    public ErpContext(DbContextOptions<ErpContext> options)
+    public ErpContext(DbContextOptions<ErpContext> options) : base(options)
     {
     }
 }
