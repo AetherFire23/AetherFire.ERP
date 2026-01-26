@@ -1,1 +1,3 @@
-﻿dotnet ef migrations add initial --project "../src/ERP.Infrastructure";
+﻿dotnet ef migrations add "initial $([Guid]::NewGuid().ToString())" --project "../src/ERP.Infrastructure";
+
+

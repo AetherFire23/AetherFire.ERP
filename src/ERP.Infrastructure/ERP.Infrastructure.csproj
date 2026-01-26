@@ -9,6 +9,7 @@
     <ItemGroup>
       <ProjectReference Include="..\commons\AetherFire23.Commons.Domain\AetherFire23.Commons.Domain.csproj" />
       <ProjectReference Include="..\commons\AetherFire23.Commons.EntityFramework\AetherFire23.Commons.EntityFramework.csproj" />
+      <ProjectReference Include="..\ERP.Application\ERP.Application.csproj" />
       <ProjectReference Include="..\ERP.Domain\ERP.Domain.csproj" />
     </ItemGroup>
 

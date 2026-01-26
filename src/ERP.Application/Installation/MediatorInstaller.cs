@@ -1,0 +1,16 @@
+﻿using AetherFire23.Commons.Composition;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+
+namespace ERP.Application.Installation;
+
+public class MediatorInstaller : IInstaller
+{
+    public void Install(IServiceCollection serviceCollection, IConfiguration configuration)
+    {
+        serviceCollection.AddMediator(o =>
+        {
+            o.Assemblies = [typeof(MediatorInstaller).Assembly];
+        });
+    }
+}
