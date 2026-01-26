@@ -4,16 +4,21 @@ using AetherFire23.ERP.Domain;
 using ERP.Application.Installation;
 using ERP.Infrastructure.Contexts;
 using Mediator;
+using Xunit.Abstractions;
 
 namespace ERP.Integration;
 
 public class ErpIntegrationTestBase : PostgresTestContainer
 {
     protected IMediator Mediator;
+    protected ITestOutputHelper Output;
+    protected ErpContext Context;
 
-    public ErpIntegrationTestBase()
+    public ErpIntegrationTestBase(ITestOutputHelper output)
     {
+        Output = output;
         Mediator = GetService<IMediator>();
+        Context = GetService<ErpContext>();
     }
 
     protected override IEnumerable<Assembly> ProvideInstallerAssemblies()

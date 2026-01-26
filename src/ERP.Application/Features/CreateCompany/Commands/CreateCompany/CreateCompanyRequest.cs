@@ -8,5 +8,4 @@ public class CreateCompanyRequest : IRequest
 
     public required string AdminUserName { get; set; }
     
-    // todo: password 
 }

@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore.Design;
 
 namespace ERP.Infrastructure.Contexts;
 
+// TODO: check if Commons can handle a generic implementation 
 public class MigrationsFactory : IDesignTimeDbContextFactory<ErpContext>
 {
     public ErpContext CreateDbContext(string[] args)

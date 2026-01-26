@@ -22,6 +22,8 @@ public class CreateCompanyHandler : IRequestHandler<CreateCompanyRequest>
         _erpContext.Companies.Add(company);
 
         _erpContext.Users.Add(user);
+        
+        await _erpContext.SaveChangesAsync(cancellationToken);
 
         return Unit.Value;
     }

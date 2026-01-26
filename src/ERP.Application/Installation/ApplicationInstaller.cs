@@ -8,6 +8,5 @@ public class ApplicationInstaller : IInstaller
 {
     public void Install(IServiceCollection serviceCollection, IConfiguration configuration)
     {
-        
     }
 }

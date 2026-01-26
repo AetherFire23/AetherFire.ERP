@@ -2,7 +2,4 @@
 
 namespace ERP.Infrastructure.Contexts;
 
-public class ErpContextInstaller : NpgsqlInitializable<ErpContext>
-{
-    
-}
+public class ErpContextInstaller : NpgsqlInitializable<ErpContext>;
