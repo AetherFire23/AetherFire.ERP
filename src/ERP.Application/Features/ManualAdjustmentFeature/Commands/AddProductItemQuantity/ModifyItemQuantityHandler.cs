@@ -6,6 +6,7 @@ namespace ERP.Application.Features.ManualAdjustmentFeature.Commands.AddProductIt
 public class ModifyItemQuantityHandler : IRequestHandler<ModifyItemQuantityRequest>
 {
     private readonly IErpContext _erpContext;
+    
 
     public ModifyItemQuantityHandler(IErpContext erpContext)
     {
@@ -16,7 +17,7 @@ public class ModifyItemQuantityHandler : IRequestHandler<ModifyItemQuantityReque
     {
         // TODO: Check if this logic is reused. for now, YAGNI
 
-        var product = _erpContext.Products.First(x => x.Id == request.ProductId);
+       
         // If this item does not exist, create it.
         //
         // var productItem = _erpContext.ProductItems

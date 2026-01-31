@@ -5,6 +5,7 @@ using ERP.Application.Installation;
 using ERP.Infrastructure.Contexts;
 using Mediator;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using Xunit.Abstractions;
 
 namespace ERP.Integration;
@@ -12,12 +13,11 @@ namespace ERP.Integration;
 public class ErpIntegrationTestBase : PostgresTestContainer
 {
     protected IMediator Mediator;
-    protected ITestOutputHelper Output;
     protected ErpContext Context;
 
-    public ErpIntegrationTestBase(ITestOutputHelper output)
+    // TODO: 
+    public ErpIntegrationTestBase(ITestOutputHelper output) : base(output)
     {
-        Output = output;
         Mediator = GetService<IMediator>();
         Context = GetService<ErpContext>();
     }
@@ -31,5 +31,22 @@ public class ErpIntegrationTestBase : PostgresTestContainer
             typeof(ApplicationInstaller).Assembly,
             typeof(ErpIntegrationTestBase).Assembly,
         ];
+    }
+
+    protected override void ConfigureAdditionalServices(IServiceCollection serviceCollection)
+    {
+        /*
+         * Logging is outputted to every log outputter. ILoggerProvider.
+         */
+        serviceCollection.AddLogging(builder =>
+        {
+            builder.ClearProviders();
+            builder.AddProvider(new XUnitLoggerProvider(Output));
+            builder.SetMinimumLevel(LogLevel.Debug);
+        });
+    }
+
+    public void Dispose()
+    {
     }
 }

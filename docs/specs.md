@@ -5,9 +5,8 @@ different companies. Therefore, we need to create the organization AND the first
 AND the user at the same time.
 
 ## Add a warehouse.
-Simply add a warehouse
 
-A warehouse belongs to a company
+The owner / admin  creates a new warehouse.  
 
 Add Products-Definition (definitions)
 There are some product information. such as baseprice, etc.

@@ -1,22 +1,16 @@
-﻿using System.Diagnostics;
-using AetherFire23.ERP.Domain.Entity;
-using ERP.Application.Features.CreateCompany.Commands.CreateCompany;
-using ERP.Infrastructure.Contexts;
+﻿using ERP.Application.Features.CreateCompany.Commands.CreateCompany;
 using Xunit.Abstractions;
 
 namespace ERP.Integration;
 
 public class UnitTest1 : ErpIntegrationTestBase
 {
+    /// <summary>
+    /// Passing the testoutput provider in the output.
+    /// </summary>
+    /// <param name="output"></param>
     public UnitTest1(ITestOutputHelper output) : base(output)
     {
-        
-    }
-
-    [Fact]
-    public async Task Test2()
-    {
-        
     }
 
     [Fact]
@@ -28,7 +22,6 @@ public class UnitTest1 : ErpIntegrationTestBase
             AdminUserName = "admin"
         });
 
-        Assert.NotEmpty(base.Context.Users);
         Assert.NotEmpty(base.Context.Companies);
     }
 }

@@ -4,6 +4,9 @@ using Mediator;
 
 namespace ERP.Application.Features.WarehouseFeature.Commands;
 
+/// <summary>
+/// An admin / buyer / owner can create a new warehouse. 
+/// </summary>
 public class CreateWarehouse : IRequestHandler<CreateWarehouseRequest>
 {
     private readonly IErpContext _erpContext;
