@@ -4,6 +4,7 @@ using AetherFire23.ERP.Domain;
 using ERP.Application.Installation;
 using ERP.Infrastructure.Contexts;
 using Mediator;
+using Microsoft.Extensions.DependencyInjection;
 using Xunit.Abstractions;
 
 namespace ERP.Integration;
@@ -27,7 +28,8 @@ public class ErpIntegrationTestBase : PostgresTestContainer
         [
             typeof(DomainInstaller).Assembly,
             typeof(ErpContext).Assembly,
-            typeof(ApplicationInstaller).Assembly
+            typeof(ApplicationInstaller).Assembly,
+            typeof(ErpIntegrationTestBase).Assembly,
         ];
     }
 }

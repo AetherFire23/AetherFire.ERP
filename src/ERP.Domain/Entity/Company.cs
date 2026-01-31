@@ -8,6 +8,7 @@ public class Company : EntityBase
 
     private Company()
     {
+        
     }
 
     public static Company Create(string name)

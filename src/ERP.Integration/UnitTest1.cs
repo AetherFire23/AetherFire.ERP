@@ -1,4 +1,5 @@
-﻿using AetherFire23.ERP.Domain.Entity;
+﻿using System.Diagnostics;
+using AetherFire23.ERP.Domain.Entity;
 using ERP.Application.Features.CreateCompany.Commands.CreateCompany;
 using ERP.Infrastructure.Contexts;
 using Xunit.Abstractions;
@@ -13,14 +14,20 @@ public class UnitTest1 : ErpIntegrationTestBase
     }
 
     [Fact]
+    public async Task Test2()
+    {
+        
+    }
+
+    [Fact]
     public async Task Test1()
     {
-        await Mediator.Send(new CreateCompanyRequest()
+        await Mediator.Send(new CreateCompanyRequest
         {
             CompanyName = "FredCo",
             AdminUserName = "admin"
         });
-        
+
         Assert.NotEmpty(base.Context.Users);
         Assert.NotEmpty(base.Context.Companies);
     }

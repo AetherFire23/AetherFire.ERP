@@ -13,7 +13,7 @@ public class User : EntityBase
 
     public static User Create(string username, Guid companyId)
     {
-        var user = new User()
+        var user = new User
         {
             CompanyId = companyId,
             Username = username,
