@@ -1,5 +1,5 @@
 ﻿using AetherFire23.Commons.Composition;
-using ERP.Application.Installation;
+using ERP.Practical.Repositories;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -9,7 +9,6 @@ public class TestInstaller : IInstaller
 {
     public void Install(IServiceCollection serviceCollection, IConfiguration configuration)
     {
-        // TODO: add specific installer override support an interface registration instead of having to do this for when i 
-        serviceCollection.AddDbContext<IErpContext, ErpContext>();
+        serviceCollection.AddScoped<ProductItemRepository>();
     }
 }

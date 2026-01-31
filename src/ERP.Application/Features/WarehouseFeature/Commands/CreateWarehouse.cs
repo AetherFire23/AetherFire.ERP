@@ -1,5 +1,6 @@
 ﻿using AetherFire23.ERP.Domain.Entity;
 using ERP.Application.Installation;
+using ERP.Practical;
 using Mediator;
 
 namespace ERP.Application.Features.WarehouseFeature.Commands;
@@ -9,9 +10,9 @@ namespace ERP.Application.Features.WarehouseFeature.Commands;
 /// </summary>
 public class CreateWarehouse : IRequestHandler<CreateWarehouseRequest>
 {
-    private readonly IErpContext _erpContext;
+    private readonly ErpContext _erpContext;
 
-    public CreateWarehouse(IErpContext erpContext)
+    public CreateWarehouse(ErpContext erpContext)
     {
         _erpContext = erpContext;
     }

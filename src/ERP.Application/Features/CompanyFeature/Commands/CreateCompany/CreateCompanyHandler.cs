@@ -1,5 +1,6 @@
 ﻿using AetherFire23.ERP.Domain.Entity;
 using ERP.Application.Installation;
+using ERP.Practical;
 using Mediator;
 using Microsoft.Extensions.Logging;
 
@@ -7,10 +8,10 @@ namespace ERP.Application.Features.CreateCompany.Commands.CreateCompany;
 
 public class CreateCompanyHandler : IRequestHandler<CreateCompanyRequest>
 {
-    private readonly IErpContext _erpContext;
+    private readonly ErpContext _erpContext;
     private readonly ILogger<CreateCompanyRequest> _logger;
 
-    public CreateCompanyHandler(IErpContext erpContext, ILogger<CreateCompanyRequest> logger)
+    public CreateCompanyHandler(ErpContext erpContext, ILogger<CreateCompanyRequest> logger)
     {
         _erpContext = erpContext;
         _logger = logger;

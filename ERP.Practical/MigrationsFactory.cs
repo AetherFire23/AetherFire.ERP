@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 
-namespace ERP.Infrastructure.Contexts;
+namespace ERP.Practical;
 
 // TODO: check if Commons can handle a generic implementation 
 public class MigrationsFactory : IDesignTimeDbContextFactory<ErpContext>
