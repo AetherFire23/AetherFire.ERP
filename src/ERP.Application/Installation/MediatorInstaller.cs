@@ -11,6 +11,13 @@ public class MediatorInstaller : IInstaller
         serviceCollection.AddMediator(o =>
         {
             o.Assemblies = [typeof(MediatorInstaller).Assembly];
+
+
+            /* VERY IMPORTANT that this is added as scoped.
+             Will work in test assemblies but not in aspnet core
+             */
+
+            o.ServiceLifetime = ServiceLifetime.Scoped;
         });
     }
 }

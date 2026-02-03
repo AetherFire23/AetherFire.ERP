@@ -1,10 +1,10 @@
 ﻿using AetherFire23.ERP.Domain.Entity;
-using ERP.Application.Installation;
+using ERP.Application.Features.CreateCompany.Commands.CreateCompany;
 using ERP.Practical;
 using Mediator;
 using Microsoft.Extensions.Logging;
 
-namespace ERP.Application.Features.CreateCompany.Commands.CreateCompany;
+namespace ERP.Application.Features.CompanyFeature.Commands.CreateCompany;
 
 public class CreateCompanyHandler : IRequestHandler<CreateCompanyRequest>
 {

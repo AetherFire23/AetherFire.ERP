@@ -4,30 +4,27 @@ A user must exist inside a company. A user cannot be within two
 different companies. Therefore, we need to create the organization AND the first user.
 AND the user at the same time.
 
+sub-users, that are not admin, cannot register by themselves.
+They must be added by the main user. 
+
 ## Add a warehouse.
 
-The owner / admin  creates a new warehouse.  
+An admin adds a new warehouse.
+
+## Add product-definition
 
 Add Products-Definition (definitions)
-There are some product information. such as baseprice, etc.
+There are some product information. such as lastprice, etc.
 
-Adjust inventory
-A manager wants to modify stocks to the inventory without having to do a PurchaseOrder.
-It is a Manual Adjustment. 
+## Adjust inventory
+A manager wants to modify stocks to a productItem
 
 Difficulty : By default, there is no ProductItem in a warehouse.
+A productItem is an item quantity for a warehouse. 
 
 If there is no ProductItem, create one.
-there is only one way to create a ProductItem, 
-by something setting the ProductItem quantity or creating it.
 
-Encompassing Idea : Modify an Item quantity. 
-
--idea : could leave a logging or notification of that change for knowledge of what
-affected the stocks. 
-- idea : ItemAddedEvent()
-
-PurchaseOrders
+## PurchaseOrders
 A buyer creates the purchase order.
 Then he adds product lines to it and specifies the expected price.
 He's issuing it to a Supplier; with an address, etc.

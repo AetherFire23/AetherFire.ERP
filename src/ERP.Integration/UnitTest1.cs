@@ -28,6 +28,5 @@ public class UnitTest1 : ErpIntegrationTestBase
             BasePrice = 14,
             ProductName = "TN760 REU",
         });
-        
     }
 }

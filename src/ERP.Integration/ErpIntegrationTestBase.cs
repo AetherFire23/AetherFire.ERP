@@ -46,6 +46,7 @@ public class ErpIntegrationTestBase : PostgresTestContainer
             builder.AddProvider(new XUnitLoggerProvider(Output));
             builder.SetMinimumLevel(LogLevel.Debug);
         });
+        
     }
 
     public void Dispose()
