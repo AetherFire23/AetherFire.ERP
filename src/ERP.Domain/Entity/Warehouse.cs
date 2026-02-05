@@ -9,4 +9,6 @@ public class Warehouse : EntityBase
     public required Guid CompanyId { get; set; }
 
     public Company? Company { get; set; }
+
+    public virtual ICollection<ProductItem> ProductItems { get; set; } = [];
 }

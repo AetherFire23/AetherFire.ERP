@@ -14,4 +14,8 @@ public class ErpContext : DbContext
     public ErpContext(DbContextOptions<ErpContext> options) : base(options)
     {
     }
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+
+    }
 }

@@ -1,5 +1,7 @@
 ﻿using ERP.Application.Features.CompanyFeature.Commands.CreateCompany;
+using ERP.Application.Features.ManualAdjustmentFeature.Commands.ModifyItemQuantity;
 using ERP.Application.Features.ProductFeature.Commands.ProductCreation;
+using ERP.Application.Features.WarehouseFeature.Commands;
 using JetBrains.Annotations;
 using Xunit.Abstractions;
 
@@ -27,7 +29,9 @@ public class CreateProductTest : ErpIntegrationTestBase
             BasePrice = 14,
             ProductName = "TN760 REU",
         });
-        
+
         Assert.NotEmpty(this.Context.Products.ToList());
     }
+
+  
 }

@@ -33,7 +33,7 @@ public class ModifyItemQuantityHandlerTest : ErpIntegrationTestBase
     }
 
     [Fact]
-    public async Task GivenProductItemExists_WhenProductItemIsSet_ThenProductItemIsAddedWithCorrectQuantity()
+    public async Task GivenProductItemExists_WhenProductItemIsSet_ThenProductItemModifiedWithCorrectQuantity()
     {
         (Guid warehouseId, Guid productId) = await CreateCompanyAndWarehouseAndProducts();
         await base.Mediator.Send(new ModifyItemQuantityRequest

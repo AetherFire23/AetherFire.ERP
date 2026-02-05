@@ -5,10 +5,10 @@ namespace AetherFire23.ERP.Domain.Entity;
 public class ProductItem : EntityBase
 {
     public required Guid ProductId { get; set; }
-    public Product? Product { get; set; }
+    public Product Product { get; set; } = null!;
 
     public required Guid WarehouseId { get; set; }
-    public Warehouse? Warehouse { get; set; }
+    public Warehouse Warehouse { get; set; } = null!;
 
     public int Quantity { get; set; }
 
