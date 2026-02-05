@@ -8,7 +8,7 @@ namespace ERP.Application.Features.WarehouseFeature.Commands;
 /// <summary>
 /// An admin / buyer / owner can create a new warehouse. 
 /// </summary>
-public class CreateWarehouse : IRequestHandler<CreateWarehouseRequest>
+public class CreateWarehouse : IRequestHandler<CreateWarehouseRequest, Guid>
 {
     private readonly ErpContext _erpContext;
 
@@ -17,7 +17,7 @@ public class CreateWarehouse : IRequestHandler<CreateWarehouseRequest>
         _erpContext = erpContext;
     }
 
-    public async ValueTask<Unit> Handle(CreateWarehouseRequest request, CancellationToken cancellationToken)
+    public async ValueTask<Guid> Handle(CreateWarehouseRequest request, CancellationToken cancellationToken)
     {
         var warehouse = new Warehouse
         {
@@ -29,6 +29,6 @@ public class CreateWarehouse : IRequestHandler<CreateWarehouseRequest>
 
         await _erpContext.SaveChangesAsync(cancellationToken);
 
-        return Unit.Value;
+        return warehouse.Id;
     }
 }

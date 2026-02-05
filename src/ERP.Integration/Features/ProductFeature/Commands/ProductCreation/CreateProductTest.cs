@@ -1,4 +1,4 @@
-﻿using ERP.Application.Features.CreateCompany.Commands.CreateCompany;
+﻿using ERP.Application.Features.CompanyFeature.Commands.CreateCompany;
 using ERP.Application.Features.ProductFeature.Commands.ProductCreation;
 using JetBrains.Annotations;
 using Xunit.Abstractions;
@@ -18,10 +18,11 @@ public class CreateProductTest : ErpIntegrationTestBase
         await Mediator.Send(new CreateCompanyRequest
         {
             CompanyName = "FredCo",
-            AdminUserName = "admin"
+            AdminUserName = "admin",
+            Password = "Bonou"
         });
 
-        await Mediator.Send(new CreateProductCommand
+        await Mediator.Send(new CreateProductRequest
         {
             BasePrice = 14,
             ProductName = "TN760 REU",

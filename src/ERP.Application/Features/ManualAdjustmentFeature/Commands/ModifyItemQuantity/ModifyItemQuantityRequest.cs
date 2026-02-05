@@ -1,6 +1,6 @@
 ﻿using Mediator;
 
-namespace ERP.Application.Features.ManualAdjustmentFeature.Commands.AddProductItemQuantity;
+namespace ERP.Application.Features.ManualAdjustmentFeature.Commands.ModifyItemQuantity;
 
 public class ModifyItemQuantityRequest : IRequest
 {

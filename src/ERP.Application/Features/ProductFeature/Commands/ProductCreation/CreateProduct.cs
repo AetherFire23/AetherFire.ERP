@@ -5,7 +5,7 @@ using Microsoft.Extensions.Logging;
 
 namespace ERP.Application.Features.ProductFeature.Commands.ProductCreation;
 
-public class CreateProduct : IRequestHandler<CreateProductCommand>
+public class CreateProduct : IRequestHandler<CreateProductRequest, Guid>
 {
     private readonly ErpContext _erpContext;
     private readonly ILogger<CreateProduct> _logger;
@@ -16,20 +16,19 @@ public class CreateProduct : IRequestHandler<CreateProductCommand>
         _logger = logger;
     }
 
-    public async ValueTask<Unit> Handle(CreateProductCommand request, CancellationToken cancellationToken)
+    public async ValueTask<Guid> Handle(CreateProductRequest request, CancellationToken cancellationToken)
     {
-
         Product product = new Product
         {
             ProductName = request.ProductName,
-            BasePrice = request.BasePrice
+            BasePrice = request.BasePrice,
         };
-        
+
         _erpContext.Products.Add(product);
 
         await _erpContext.SaveChangesAsync(cancellationToken);
         _logger.LogInformation($"Added product {request.ProductName} with price {request.BasePrice}");
-        
-        return Unit.Value;
+
+        return product.Id;
     }
 }

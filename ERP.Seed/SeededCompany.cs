@@ -1,4 +1,4 @@
-﻿using ERP.Application.Features.CreateCompany.Commands.CreateCompany;
+﻿using ERP.Application.Features.CompanyFeature.Commands.CreateCompany;
 using Mediator;
 
 namespace ERP.Seed;
@@ -17,7 +17,8 @@ public class SeededCompany : ISeeder
         await _mediator.Send(new CreateCompanyRequest
         {
             AdminUserName = "fred",
-            CompanyName = "FredCo"
+            CompanyName = "FredCo",
+            Password = "BONJOUR"
         });
     }
 }

@@ -21,15 +21,7 @@ public class ScenarioLauncher
 
         var pw = await Playwright.CreateAsync();
 
-        var browser = await pw.Chromium.LaunchAsync(new BrowserTypeLaunchOptions()
-        {
-            Headless = false
-        });
-
-       var page = await  browser.NewPageAsync();
-       await page.GotoAsync("http://localhost:5173");
-
-       // await ((ScenarioBase)Activator.CreateInstance(scenarios)).LaunchScenario();
+       await ((ScenarioBase)Activator.CreateInstance(scenarios)).RunScenario(pw);
 
        // run scenario 
     }

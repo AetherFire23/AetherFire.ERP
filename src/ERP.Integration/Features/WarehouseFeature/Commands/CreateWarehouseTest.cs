@@ -1,4 +1,4 @@
-﻿using ERP.Application.Features.CreateCompany.Commands.CreateCompany;
+﻿using ERP.Application.Features.CompanyFeature.Commands.CreateCompany;
 using ERP.Application.Features.ProductFeature.Commands.ProductCreation;
 using ERP.Application.Features.WarehouseFeature.Commands;
 using JetBrains.Annotations;
@@ -20,10 +20,11 @@ public class CreateWarehouseTest : ErpIntegrationTestBase
         await Mediator.Send(new CreateCompanyRequest
         {
             CompanyName = "FredCo",
-            AdminUserName = "admin"
+            AdminUserName = "admin",
+            Password = "Bonjour"
         });
 
-        await Mediator.Send(new CreateProductCommand
+        await Mediator.Send(new CreateProductRequest
         {
             BasePrice = 14,
             ProductName = "TN760 REU",

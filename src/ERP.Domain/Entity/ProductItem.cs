@@ -10,14 +10,19 @@ public class ProductItem : EntityBase
     public required Guid WarehouseId { get; set; }
     public Warehouse? Warehouse { get; set; }
 
-    public required int Quantity { get; set; }
+    public int Quantity { get; set; }
 
-    public static ProductItem Create(Guid productId, Guid warehouseId)
+    public ProductItem(int quantity)
     {
-        var productItem = new ProductItem
+        this.Quantity = quantity;
+    }
+
+    public static ProductItem Create(Guid productId, Guid warehouseId, int initialQuantity)
+    {
+        var productItem = new ProductItem(initialQuantity)
         {
             ProductId = productId,
-            Quantity = 0,
+            Quantity = initialQuantity,
             WarehouseId = warehouseId
         };
 
