@@ -11,11 +11,20 @@ public class ErpContext : DbContext
     public DbSet<Product> Products { get; set; }
     public DbSet<ProductItem> ProductItems { get; set; }
 
+    // Purchase Orders 
+    public DbSet<PurchaseOrder> PurchaseOrders { get; set; }
+    public DbSet<PurchaseOrderProductLine> PurchaseOrderProductLines { get; set; }
+    public DbSet<PurchaseOrderProductLineReserveForOrder> PurchaseOrderProductLineReserveForOrders { get; set; }
+
+    // Orders 
+    public DbSet<Order> Orders { get; set; }
+
+
     public ErpContext(DbContextOptions<ErpContext> options) : base(options)
     {
     }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-
     }
 }
