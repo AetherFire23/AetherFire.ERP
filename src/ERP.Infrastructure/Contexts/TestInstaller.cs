@@ -9,6 +9,6 @@ public class TestInstaller : IInstaller
 {
     public void Install(IServiceCollection serviceCollection, IConfiguration configuration)
     {
-        serviceCollection.AddScoped<ProductItemRepository>();
+        serviceCollection.AddScoped<WarehouseRepository>();
     }
 }

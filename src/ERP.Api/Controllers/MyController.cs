@@ -1,26 +1,32 @@
-﻿using ERP.Practical;
+﻿using ERP.Application.Features.CompanyFeature.Commands.CreateCompany;
+using ERP.Practical;
+using Mediator;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ERP.Api.Controllers;
 
 [ApiController]
-[Route("mycontroller")]
+[Route("company")]
 public class MyController : ControllerBase
 {
-
     private readonly ErpContext _ctx;
-    private readonly ILogger<MyController> _anus;
-    public MyController(ErpContext ctx, ILogger<MyController> anus)
+    private readonly ILogger<MyController> _logger;
+    private readonly IMediator _mediator;
+
+    public MyController(ErpContext ctx, ILogger<MyController> logger, IMediator mediator)
     {
         _ctx = ctx;
-        _anus = anus;
+        _logger = logger;
+        _mediator = mediator;
     }
-    [HttpGet("allo")]
-    [ProducesResponseType<List<string>>(StatusCodes.Status200OK)]
-    public async Task<ActionResult<List<string>>> DatController()
+
+    [HttpPost("createCompany")]
+    [ProducesResponseType<Guid>(StatusCodes.Status200OK)]
+    public async Task<ActionResult<Guid>> CreateCompany([FromBody] CreateCompanyRequest createCompanyRequest)
     {
-        _anus.LogInformation("Hey hey !!!!");
-        await Task.Delay(1444);
-        return Ok(new List<string>(["1", "2", "3"]));
+        await Task.Delay(1000);
+        _logger.LogInformation("Create company endpoint  reached.");
+        var companyId = await _mediator.Send(createCompanyRequest);
+        return Ok(companyId);
     }
 }

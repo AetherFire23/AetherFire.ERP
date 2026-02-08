@@ -23,8 +23,6 @@ public class CreateCompanyHandler : IRequestHandler<CreateCompanyRequest, Create
         
         CompanyInfo companyInfo = CompanyInfo.Create(request.CompanyName);
         
-        
-        
 
         _erpContext.CompanyInfo.Add(companyInfo);
         await _erpContext.SaveChangesAsync(cancellationToken);

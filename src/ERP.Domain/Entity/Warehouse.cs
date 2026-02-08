@@ -11,4 +11,16 @@ public class Warehouse : EntityBase
     public CompanyInfo? Company { get; set; }
 
     public virtual ICollection<ProductItem> ProductItems { get; set; } = [];
+
+    public void AddProductItem(Product product, int quantity)
+    {
+        var productItem = new ProductItem
+        {
+            Product = product,
+            Quantity = quantity,
+            Warehouse = this,
+        };
+
+        this.ProductItems.Add(productItem);
+    }
 }

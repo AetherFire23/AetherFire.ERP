@@ -3,18 +3,18 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ERP.Practical.Repositories;
 
-public class ProductItemRepository
+public class WarehouseRepository
 {
-    private readonly ErpContext _productItemRepository;
+    private readonly ErpContext _erpContext;
 
-    public ProductItemRepository(ErpContext productItemRepository)
+    public WarehouseRepository(ErpContext erpContext)
     {
-        _productItemRepository = productItemRepository;
+        _erpContext = erpContext;
     }
 
     public async Task<ProductItem?> GetProductItemInWarehouse(Guid warehouseId, Guid productId)
     {
-        var productItem = await _productItemRepository.ProductItems
+        var productItem = await _erpContext.ProductItems
             .Where(x => x.WarehouseId == warehouseId)
             .FirstOrDefaultAsync(x => x.ProductId == productId);
 

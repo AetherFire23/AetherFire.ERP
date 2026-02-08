@@ -56,7 +56,8 @@ public partial class Program
             app.MapOpenApi();
             app.UseSwagger();
             app.UseSwaggerUI(a => { a.SwaggerEndpoint("/swagger/v1/swagger.json", "ERP API V1"); });
-            app.Services.ExecuteSeedFromSeedName(args.ElementAt(args.IndexOf("--seed") + 1));
+
+            // Seed and Scenario
 
             // Deletes database after migrating it. 
             using (var scope = app.Services.CreateScope())
@@ -70,11 +71,23 @@ public partial class Program
                 s.Database.Migrate();
             }
 
-            // Leave as fire-and-forget async call. 
-            app.Services.LaunchScenarioBrowser(args[args.IndexOf("--scenario") + 1]);
+            if (args.Contains("--seed") && args.Contains("--scenario"))
+            {
+                app.Services.ExecuteSeedFromSeedName(args.ElementAt(args.IndexOf("--seed") + 1));
+                // Leave as fire-and-forget async call. 
+                app.Services.LaunchScenarioBrowser(args[args.IndexOf("--scenario") + 1]);
+            }
+            else
+            {
+                app.Services.GetRequiredService<ILogger<Program>>().LogInformation("Launching with seeds requires scenarios");
+            }
         }
 
-        app.UseCors(x => x.AllowAnyOrigin());
+        app.UseCors(x =>
+        {
+            x.AllowAnyOrigin();
+            x.AllowAnyHeader();
+        } );
 
         app.UseHttpsRedirection();
 

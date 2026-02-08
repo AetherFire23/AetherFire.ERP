@@ -11,6 +11,7 @@ public class User : EntityBase
 
     public static User Create(string username, string password, Guid companyId)
     {
+        
         var user = new User
         {
             CompanyId = companyId,
