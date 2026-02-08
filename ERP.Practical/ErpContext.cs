@@ -16,7 +16,7 @@ public class ErpContext : DbContext
     // Purchase Orders 
     public DbSet<PurchaseOrder> PurchaseOrders { get; set; }
     public DbSet<PurchaseOrderProductLine> PurchaseOrderProductLines { get; set; }
-    public DbSet<PurchaseOrderProductLineReserveForOrder> PurchaseOrderProductLineReserveForOrders { get; set; }
+    public DbSet<OrderItemReservation> PurchaseOrderProductLineReserveForOrders { get; set; }
 
     // Orders 
     public DbSet<Order> Orders { get; set; }

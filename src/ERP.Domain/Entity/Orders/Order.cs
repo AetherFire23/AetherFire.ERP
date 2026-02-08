@@ -6,19 +6,17 @@ public class Order : EntityBase
 {
     public DateTime OrderDate { get; set; } = DateTime.UtcNow;
 
-    public ICollection<OrderProductLine> OrderProductLines { get; private set; } = [];
+    public ICollection<OrderProductLine> OrderProductLines { get; set; } = [];
 
-    public OrderProductLine AddOrderProductLine(OrderProductLineCreationArgs args)
+    public void AddProduct(Product product, int quantity)
     {
         var orderProductLine = new OrderProductLine
         {
-            OrderId = this.Id,
-            ProductId = args.ProductId,
-            QuantityOrdered = args.QuantityOrdered,
+            Product = product,
+            QuantityOrdered = quantity,
+            Order = this,
         };
 
         this.OrderProductLines.Add(orderProductLine);
-
-        return orderProductLine;
     }
 }

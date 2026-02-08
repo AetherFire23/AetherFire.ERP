@@ -7,11 +7,15 @@ public class PurchaseOrderProductLine : EntityBase
     public Guid PurchaseOrderId { get; set; }
     public PurchaseOrder PurchaseOrder { get; set; } = null!;
 
-    public required Guid ProductId { get; set; }
+    public Guid ProductId { get; set; }
     public Product Product { get; set; } = null!;
 
-    public ICollection<PurchaseOrderProductLineReserveForOrder> PurcherOrderProductLineReserveForOrders { get; set; } =
+    public ICollection<OrderItemReservation> OrderItemReservations { get; set; } =
         [];
-    
+
     public int QuantityOrdered { get; set; }
+
+    internal PurchaseOrderProductLine()
+    {
+    }
 }

@@ -34,17 +34,20 @@ public class UnitTest1 : ErpIntegrationTestBase
         base.Context.Products.Add(product2);
 
         var orderEntity = base.Context.Orders.Add(new Order());
-        //
+
+        var productLine = new OrderProductLine
+        {
+            ProductId = product.Id,
+            QuantityOrdered = 12,
+        };
+
+        base.Context.Add(productLine);
+        
+
+        orderEntity.Entity.OrderProductLines.Add(productLine);
+
         await base.Context.SaveChangesAsync();
-        //
-        // var opline = orderEntity.Entity.AddOrderProductLine(new OrderProductLineCreationArgs()
-        // {
-        //     QuantityOrdered = 12,
-        //     ProductId = product.Id,
-        // });
-        //
-        // await base.Context.SaveChangesAsync();
-        //
+
 
         Assert.Contains(orderEntity.Entity, Context.Orders);
     }
