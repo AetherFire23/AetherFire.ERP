@@ -19,7 +19,7 @@ public class CreateCompanyTests : ErpIntegrationTestBase
             Password = "BONJOUR"
         });
 
-        Assert.NotEmpty(base.Context.Companies);
+        Assert.NotEmpty(base.Context.CompanyInfo);
     }
 
     [Fact]
@@ -33,5 +33,25 @@ public class CreateCompanyTests : ErpIntegrationTestBase
         });
 
         Assert.NotEmpty(base.Context.Users);
+    }
+
+    [Fact]
+    public async Task GivenTwoCompanies_WhenAdded_ThenExceptionIsThrown()
+    {
+        await Mediator.Send(new CreateCompanyRequest
+        {
+            CompanyName = "FredCo",
+            AdminUserName = "admin",
+            Password = "Bonjour",
+        });
+
+        Action action = () => Mediator.Send(new CreateCompanyRequest
+        {
+            CompanyName = "FredCo",
+            AdminUserName = "admin",
+            Password = "Bonjour",
+        }).AsTask().Wait();
+
+        Assert.ThrowsAny<Exception>(action);
     }
 }

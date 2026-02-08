@@ -1,4 +1,6 @@
 ﻿using AetherFire23.ERP.Domain.Entity;
+using AetherFire23.ERP.Domain.Entity.Orders;
+using AetherFire23.ERP.Domain.Entity.PurchaseOrderring;
 using Microsoft.EntityFrameworkCore;
 
 namespace ERP.Practical;
@@ -6,10 +8,10 @@ namespace ERP.Practical;
 public class ErpContext : DbContext
 {
     public DbSet<User> Users { get; set; }
-    public DbSet<Company> Companies { get; set; }
     public DbSet<Warehouse> Warehouses { get; set; }
     public DbSet<Product> Products { get; set; }
     public DbSet<ProductItem> ProductItems { get; set; }
+    public DbSet<CompanyInfo> CompanyInfo { get; set; }
 
     // Purchase Orders 
     public DbSet<PurchaseOrder> PurchaseOrders { get; set; }
@@ -18,6 +20,7 @@ public class ErpContext : DbContext
 
     // Orders 
     public DbSet<Order> Orders { get; set; }
+    public DbSet<OrderProductLine> OrderProductLines { get; set; }
 
 
     public ErpContext(DbContextOptions<ErpContext> options) : base(options)

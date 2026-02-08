@@ -20,23 +20,26 @@ public class CreateCompanyHandler : IRequestHandler<CreateCompanyRequest, Create
         CancellationToken cancellationToken)
     {
         _logger.LogInformation("Starting CreateCompanyHandler added to database");
+        
+        CompanyInfo companyInfo = CompanyInfo.Create(request.CompanyName);
+        
+        
+        
 
-        Company company = Company.Create(request.CompanyName);
-
-        _erpContext.Companies.Add(company);
+        _erpContext.CompanyInfo.Add(companyInfo);
         await _erpContext.SaveChangesAsync(cancellationToken);
 
-        User user = User.Create(request.AdminUserName, request.Password, company.Id);
+        User user = User.Create(request.AdminUserName, request.Password, companyInfo.Id);
 
         _erpContext.Users.Add(user);
 
         await _erpContext.SaveChangesAsync(cancellationToken);
 
-        _logger.LogInformation("Company added to database " + company.CompanyName);
+        _logger.LogInformation("Company added to database " + companyInfo.CompanyName);
 
         return new()
         {
-            CompanyId = company.Id,
+            CompanyId = companyInfo.Id,
             UserId = user.Id,
         };
     }
