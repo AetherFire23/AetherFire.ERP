@@ -30,11 +30,14 @@ public class ModifyItemQuantityHandler : IRequestHandler<ModifyItemQuantityReque
         {
             _logger.LogInformation("Product item not found, creating one...");
             Product product = _erpContext.Products.First(p => p.Id == request.ProductId);
-            
+
             Warehouse warehouse = await _erpContext.Warehouses.FindAsync(request.WarehouseId) ??
                                   throw new Exception("Not found");
             
-            warehouse.AddProductItem(product, request.NewQuantity);
+            var newProductItem = warehouse.AddProductItem(product, request.NewQuantity);
+
+            _erpContext.Add(newProductItem);
+
         }
         else
         {

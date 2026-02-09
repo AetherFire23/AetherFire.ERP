@@ -12,7 +12,7 @@ public class Warehouse : EntityBase
 
     public virtual ICollection<ProductItem> ProductItems { get; set; } = [];
 
-    public void AddProductItem(Product product, int quantity)
+    public ProductItem AddProductItem(Product product, int quantity)
     {
         var productItem = new ProductItem
         {
@@ -22,5 +22,7 @@ public class Warehouse : EntityBase
         };
 
         this.ProductItems.Add(productItem);
+
+        return productItem;
     }
 }

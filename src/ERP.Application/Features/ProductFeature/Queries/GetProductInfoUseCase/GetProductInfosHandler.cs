@@ -20,7 +20,7 @@ public class GetProductInfosHandler : IRequestHandler<GetProductDtoRequest, Prod
 
         var productItemsInTheCorrectCompany = _erpContext.ProductItems
             .Include(x => x.Warehouse)
-            .ThenInclude(x => x.Company)
+                .ThenInclude(x => x.Company)
             .Where(x => x.ProductId == request.ProductId && x.Warehouse.CompanyId == request.CompanyId)
             .ToList();
 

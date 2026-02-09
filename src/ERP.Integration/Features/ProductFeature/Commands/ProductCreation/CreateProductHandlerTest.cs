@@ -7,10 +7,10 @@ using Xunit.Abstractions;
 
 namespace ERP.Integration.Features.ProductFeature.Commands.ProductCreation;
 
-[TestSubject(typeof(CreateProduct))]
-public class CreateProductTest : ErpIntegrationTestBase
+[TestSubject(typeof(CreateProductHandler))]
+public class CreateProductHandlerTest : ErpIntegrationTestBase
 {
-    public CreateProductTest(ITestOutputHelper output) : base(output)
+    public CreateProductHandlerTest(ITestOutputHelper output) : base(output)
     {
     }
 

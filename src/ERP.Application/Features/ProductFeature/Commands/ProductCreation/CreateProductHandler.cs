@@ -5,12 +5,12 @@ using Microsoft.Extensions.Logging;
 
 namespace ERP.Application.Features.ProductFeature.Commands.ProductCreation;
 
-public class CreateProduct : IRequestHandler<CreateProductRequest, Guid>
+public class CreateProductHandler : IRequestHandler<CreateProductRequest, Guid>
 {
     private readonly ErpContext _erpContext;
-    private readonly ILogger<CreateProduct> _logger;
+    private readonly ILogger<CreateProductHandler> _logger;
 
-    public CreateProduct(ErpContext erpContext, ILogger<CreateProduct> logger)
+    public CreateProductHandler(ErpContext erpContext, ILogger<CreateProductHandler> logger)
     {
         _erpContext = erpContext;
         _logger = logger;
