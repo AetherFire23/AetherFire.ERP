@@ -1,6 +1,7 @@
-﻿namespace ERP.Application.Features.PurchaseOrderFeature.Commands;
+﻿using Mediator;
 
-public class CreatePurchaseOrderRequest
+namespace ERP.Application.Features.PurchaseOrderFeature.Commands;
+
+public class CreatePurchaseOrderRequest : IRequest<Guid>
 {
-    
 }

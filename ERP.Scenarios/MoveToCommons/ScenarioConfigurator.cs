@@ -2,7 +2,7 @@
 
 namespace ERP.Scenarios.MoveToCommons;
 
-public static class ScenarioMonsieur
+public static class ScenarioConfigurator
 {
     public static void InstallScenarioLauncher(this IServiceCollection serviceCollection)
     {
@@ -11,11 +11,9 @@ public static class ScenarioMonsieur
 
     public static async Task LaunchScenarioBrowser(this IServiceProvider serviceProvider, string scenarionName)
     {
-        using (var scope = serviceProvider.CreateScope())
-        {
-            var scenarioLauncher = scope.ServiceProvider.GetRequiredService<ScenarioLauncher>();
+        using IServiceScope scope = serviceProvider.CreateScope();
+        ScenarioLauncher scenarioLauncher = scope.ServiceProvider.GetRequiredService<ScenarioLauncher>();
 
-            await scenarioLauncher.LaunchScenario(scenarionName);
-        }
+        await scenarioLauncher.LaunchScenario(scope ,scenarionName);
     }
 }

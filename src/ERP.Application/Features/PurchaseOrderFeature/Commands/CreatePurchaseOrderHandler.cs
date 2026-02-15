@@ -1,5 +1,11 @@
-﻿namespace ERP.Application.Features.PurchaseOrderFeature.Commands;
+﻿using Mediator;
 
-public class CreatePurchaseOrderHandler
+namespace ERP.Application.Features.PurchaseOrderFeature.Commands;
+
+public class CreatePurchaseOrderHandler : IRequestHandler<CreatePurchaseOrderRequest, Guid>
 {
+    public async ValueTask<Guid> Handle(CreatePurchaseOrderRequest request, CancellationToken cancellationToken)
+    {
+        throw new Exception("sd");
+    }
 }

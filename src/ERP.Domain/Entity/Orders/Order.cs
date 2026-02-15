@@ -8,9 +8,11 @@ public class Order : EntityBase
 
     public ICollection<OrderProductLine> OrderProductLines { get; set; } = [];
 
-    public void AddProduct(Product product, int quantity)
+    // TODO: IDEA: for analyzer
+    // an entity marked with "entitybase" must be if created within a class that inherits for entitybase 
+    public OrderProductLine AddProductLine(Product product, int quantity)
     {
-        var orderProductLine = new OrderProductLine
+        OrderProductLine orderProductLine = new OrderProductLine
         {
             Product = product,
             QuantityOrdered = quantity,
@@ -18,5 +20,18 @@ public class Order : EntityBase
         };
 
         this.OrderProductLines.Add(orderProductLine);
+
+        return orderProductLine;
+    }
+
+    public bool HasLine(Product product)
+    {
+        return this.OrderProductLines.Any(x => x.Product.Equals(product));
+    }
+
+    public OrderProductLine GetLine(Product product)
+    {
+        OrderProductLine prod = this.OrderProductLines.First(x => x.ProductId == product.Id);
+        return prod;
     }
 }

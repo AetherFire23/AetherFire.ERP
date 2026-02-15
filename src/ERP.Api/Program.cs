@@ -42,14 +42,13 @@ public partial class Program
         builder.Services.AddSeedServices(typeof(SeededCompany).Assembly);
         builder.Services.InstallScenarioLauncher();
 
-
         var app = builder.Build();
 
         composer.InitializeServices(app.Services);
 
-
         app.MapControllers();
         app.MapSwagger();
+        
         // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())
         {
@@ -79,7 +78,8 @@ public partial class Program
             }
             else
             {
-                app.Services.GetRequiredService<ILogger<Program>>().LogInformation("Launching with seeds requires scenarios");
+                app.Services.GetRequiredService<ILogger<Program>>()
+                    .LogInformation("Launching with seeds requires scenarios");
             }
         }
 
@@ -87,7 +87,7 @@ public partial class Program
         {
             x.AllowAnyOrigin();
             x.AllowAnyHeader();
-        } );
+        });
 
         app.UseHttpsRedirection();
 

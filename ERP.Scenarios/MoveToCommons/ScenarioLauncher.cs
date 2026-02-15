@@ -1,14 +1,15 @@
 ﻿using System.Reflection;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Playwright;
 
 namespace ERP.Scenarios.MoveToCommons;
 
 public class ScenarioLauncher
 {
-    public async Task LaunchScenario(string scenarioName)
+    public async Task LaunchScenario(IServiceScope scope, string scenarioName)
     {
         // get scenario classes
-        var scenarios = typeof(ScenarioLauncher).Assembly.GetTypes()
+        Type scenario = typeof(ScenarioLauncher).Assembly.GetTypes()
             .Where(t => !t.IsAbstract
                         && !t.IsInterface
                         && typeof(ScenarioBase).IsAssignableFrom(t)
@@ -21,8 +22,6 @@ public class ScenarioLauncher
 
         var pw = await Playwright.CreateAsync();
 
-       await ((ScenarioBase)Activator.CreateInstance(scenarios)).RunScenario(pw);
-
-       // run scenario 
+       await ((ScenarioBase)Activator.CreateInstance(scenario)).RunScenario(scope,pw);
     }
 }
