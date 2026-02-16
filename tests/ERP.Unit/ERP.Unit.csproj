@@ -21,8 +21,14 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\src\ERP.Domain\ERP.Domain.csproj" />
-      <ProjectReference Include="..\src\ERP.Integration\ERP.Integration.csproj" />
+
+        
+    
+      <ProjectReference Include="..\..\src\ERP.Domain\ERP.Domain.csproj" />
+
+        
+    
+      <ProjectReference Include="..\..\src\ERP.Integration\ERP.Integration.csproj" />
     </ItemGroup>
 
 </Project>
