@@ -126,7 +126,7 @@ public class OrderTest : ErpIntegrationTestBase
         var order = new Order();
         Context.Add(order);
 
-        order.AddProduct(product, 123);
+        order.AddProductLine(product, 123);
 
         await base.Context.SaveChangesAsync();
     }

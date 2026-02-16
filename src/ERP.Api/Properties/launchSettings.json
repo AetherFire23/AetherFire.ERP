@@ -4,13 +4,13 @@
     "http": {
       "commandName": "Project",
       "dotnetRunMessages": true,
-      "launchBrowser": false,
+      "launchBrowser": true,
       "launchUrl": "swagger",
       "applicationUrl": "http://localhost:5272",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "commandLineArgs": ""
+      "commandLineArgs": "--seed SeededCompany --scenario SeededCompany"
     },
     "https": {
       "commandName": "Project",

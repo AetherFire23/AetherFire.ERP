@@ -1,4 +1,4 @@
-﻿using AetherFire23.Commons.Seeding;
+using AetherFire23.Commons.Seeding;
 using ERP.Application.Features.CompanyFeature.Commands.CreateCompany;
 using Mediator;
 

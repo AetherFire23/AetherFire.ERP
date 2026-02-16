@@ -1,3 +1,0 @@
-﻿pwd
-
-dotnet run anus

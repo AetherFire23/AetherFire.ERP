@@ -9,7 +9,7 @@ public class PurchaseOrder : EntityBase
 
     public void AddProductLine(Product product, int quantity)
     {
-        var purchaseOrderProductLine = new PurchaseOrderProductLine()
+        PurchaseOrderProductLine purchaseOrderProductLine = new PurchaseOrderProductLine()
         {
             QuantityOrdered = quantity,
             Product = product,
@@ -25,7 +25,7 @@ public class PurchaseOrder : EntityBase
     public void AddOrderItemReservation(PurchaseOrderProductLine purchaseOrderProductLine, Order order,
         int quantityReserved)
     {
-        var orderItemReservation = new OrderItemReservation
+        OrderItemReservation orderItemReservation = new OrderItemReservation
         {
             PurchaseOrderProductLine = purchaseOrderProductLine,
             Quantity = quantityReserved,

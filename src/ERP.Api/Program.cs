@@ -1,10 +1,10 @@
 using AetherFire23.Commons.Composition;
+using AetherFire23.Commons.Scenarios;
 using AetherFire23.Commons.Seeding;
 using AetherFire23.ERP.Domain;
 using ERP.Application.Installation;
 using ERP.Infrastructure.Contexts;
 using ERP.Practical;
-using ERP.Scenarios.MoveToCommons;
 using ERP.Seed;
 using Microsoft.EntityFrameworkCore;
 
@@ -41,14 +41,13 @@ public partial class Program
         builder.Services.AddSeedServices(typeof(SeededCompany).Assembly);
         builder.Services.InstallScenarioLauncher();
 
-
         var app = builder.Build();
 
         composer.InitializeServices(app.Services);
 
-
         app.MapControllers();
         app.MapSwagger();
+
         // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())
         {
@@ -78,7 +77,8 @@ public partial class Program
             }
             else
             {
-                app.Services.GetRequiredService<ILogger<Program>>().LogInformation("Launching with seeds requires scenarios");
+                app.Services.GetRequiredService<ILogger<Program>>()
+                    .LogInformation("Launching with seeds requires scenarios");
             }
         }
 
@@ -86,7 +86,7 @@ public partial class Program
         {
             x.AllowAnyOrigin();
             x.AllowAnyHeader();
-        } );
+        });
 
         app.UseHttpsRedirection();
 

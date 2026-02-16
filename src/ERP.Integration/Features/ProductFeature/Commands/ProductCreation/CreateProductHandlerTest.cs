@@ -32,6 +32,4 @@ public class CreateProductHandlerTest : ErpIntegrationTestBase
 
         Assert.NotEmpty(this.Context.Products.ToList());
     }
-
-  
 }
