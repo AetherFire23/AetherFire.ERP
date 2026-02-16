@@ -30,7 +30,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERP.Seed", "ERP.Seed\ERP.Se
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERP.Scenarios", "ERP.Scenarios\ERP.Scenarios.csproj", "{159830F1-B9F2-4AE4-9B75-756EADC0A2C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERP.Testing.Domain", "ERP.Testing.Domain\ERP.Testing.Domain.csproj", "{A5DF0DA5-5A5D-4A4C-ACBB-3D4FD53B8778}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERP.Unit", "ERP.Unit\ERP.Unit.csproj", "{A5DF0DA5-5A5D-4A4C-ACBB-3D4FD53B8778}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AetherFire23.Commons.Seeding", "src\commons\AetherFire23.Commons.Seeding\AetherFire23.Commons.Seeding.csproj", "{36FDA362-A7B6-456D-ADEE-8676D2388562}"
 EndProject

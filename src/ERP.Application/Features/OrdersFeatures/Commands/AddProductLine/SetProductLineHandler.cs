@@ -24,18 +24,18 @@ public class SetProductLineHandler : IRequestHandler<SetProductLineRequest>
             .FirstAsync(x => x.Id == request.OrderId, cancellationToken);
 
         // Order may already have a product line 
-        Product product = await _erpContext.Products.FirstAsync(x => x.Id == request.Product, cancellationToken);
-
-        if (order.HasLine(product))
+        if (order.HasLine(request.Product))
         {
-            order.GetLine(product).QuantityOrdered = request.Quantity;
+            order.GetLine(request.Product).QuantityOrdered = request.Quantity;
         }
         else
         {
-            _erpContext.Add(order.AddProductLine(product, request.Quantity));
+            var product = _erpContext.Products.First(x => x.Id == request.Product);
+            order.AddProductLine(product, request.Quantity);
         }
 
-        await _erpContext.SaveChangesAsync(cancellationToken);
+        _erpContext.Update(order);
+        // await _erpContext.SaveChangesAsync(cancellationToken);
 
         return Unit.Value;
     }

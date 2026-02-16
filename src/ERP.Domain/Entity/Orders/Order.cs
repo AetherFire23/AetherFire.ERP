@@ -28,10 +28,21 @@ public class Order : EntityBase
     {
         return this.OrderProductLines.Any(x => x.Product.Equals(product));
     }
+    
+    public bool HasLine(Guid productId)
+    {
+        return this.OrderProductLines.Any(x => x.Product.Id.Equals(productId));
+    }
 
     public OrderProductLine GetLine(Product product)
     {
-        OrderProductLine prod = this.OrderProductLines.First(x => x.ProductId == product.Id);
+        OrderProductLine prod = this.OrderProductLines.First(x => x.Product.Id == product.Id);
+        return prod;
+    }
+    
+    public OrderProductLine GetLine(Guid productId)
+    {
+        OrderProductLine prod = this.OrderProductLines.First(x => x.ProductId == productId);
         return prod;
     }
 }
