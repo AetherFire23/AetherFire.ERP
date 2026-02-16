@@ -10,6 +10,7 @@
       <ProjectReference Include="..\..\ERP.Practical\ERP.Practical.csproj" />
       <ProjectReference Include="..\commons\AetherFire23.Commons.Composition\AetherFire23.Commons.Composition.csproj" />
       <ProjectReference Include="..\ERP.Domain\ERP.Domain.csproj" />
+      <ProjectReference Include="..\ERP.Practical\ERP.Practical.csproj" />
     </ItemGroup>
 
     <ItemGroup>

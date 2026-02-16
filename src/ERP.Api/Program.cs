@@ -67,7 +67,7 @@ public partial class Program
 
                 // Re-creates the schemas, tables, 
                 s.Database.Migrate();
-            }
+            }   
 
             if (args.Contains("--seed") && args.Contains("--scenario"))
             {
