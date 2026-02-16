@@ -27,7 +27,7 @@ public partial class Program
         builder.Services.AddLogging();
         builder.Services.AddEndpointsApiExplorer();
 
-        var composer = new Composer();
+        Composer composer = new Composer();
 
         composer.InstallServices(builder.Services, builder.Configuration,
             typeof(ApplicationInstaller).Assembly,
