@@ -12,7 +12,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\src\commons\AetherFire23.Commons.Scenarios\AetherFire23.Commons.Scenarios.csproj" />
+      <ProjectReference Include="..\commons\AetherFire23.Commons.Scenarios\AetherFire23.Commons.Scenarios.csproj" />
     </ItemGroup>
 
 </Project>
