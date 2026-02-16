@@ -1,12 +1,11 @@
 using AetherFire23.Commons.Composition;
+using AetherFire23.Commons.Seeding;
 using AetherFire23.ERP.Domain;
-using AetherFire23.ERP.Domain.Entity;
 using ERP.Application.Installation;
 using ERP.Infrastructure.Contexts;
 using ERP.Practical;
 using ERP.Scenarios.MoveToCommons;
 using ERP.Seed;
-using ERP.Seed.MoveToCommons;
 using Microsoft.EntityFrameworkCore;
 
 namespace ERP.Api;

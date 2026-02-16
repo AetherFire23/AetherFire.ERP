@@ -1,4 +1,5 @@
-﻿using ERP.Application.Features.CompanyFeature.Commands.CreateCompany;
+﻿using AetherFire23.Commons.Seeding;
+using ERP.Application.Features.CompanyFeature.Commands.CreateCompany;
 using Mediator;
 
 namespace ERP.Seed;
